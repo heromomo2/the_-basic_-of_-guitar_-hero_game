@@ -32,7 +32,7 @@ public class gm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		if ((timerReset == "y")&& (noteMark < whichNote.Count) ) 
 		{
 			StartCoroutine (spawnNote ());
