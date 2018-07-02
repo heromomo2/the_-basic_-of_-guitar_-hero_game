@@ -34,9 +34,7 @@ public class Note2xControl : MonoBehaviour {
 			Debug.Log("Fail!!");
 			Instantiate (failbust, transform.position, failbust.rotation);
 		}
-
-
-
+			
 	}
 
 		void OnTriggerStay( Collider other)
