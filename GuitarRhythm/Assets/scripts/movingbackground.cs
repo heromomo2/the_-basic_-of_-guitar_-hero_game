@@ -7,7 +7,7 @@ public class movingbackground : MonoBehaviour {
 	public float backgroundSize;
 	private Transform cameraTranform;
 	private Transform [] layers;
-	private float viewZone = 10;
+	private float viewZone = 5;
 	private int leftIndex;
 	private int rightIndex;
 
@@ -15,20 +15,27 @@ public class movingbackground : MonoBehaviour {
 		cameraTranform = Camera.main.transform;
 		layers = new Transform[transform.childCount];
 		for (int i = 0; i < transform.childCount; i++)
-			layers [i] = transform.GetChild (1);
+			layers [i] = transform.GetChild (i);
 		leftIndex = 0;
 		rightIndex = layers.Length - 1;
 	}
 
 	private void Update(){
 
+		//lastCameraX = cameraTranform.position.x;
 
-		if (Input.GetKeyDown (KeyCode.A)) {
+		if (cameraTranform.position.x < (layers [leftIndex].transform.position.x + viewZone))
+			ScrollLeft ();
+		if (cameraTranform.position.x > (layers [rightIndex].transform.position.x - viewZone))
+			ScrollRight ();
+		
+
+		/*if (Input.GetKeyDown (KeyCode.A)) {
 			ScrollLeft ();
 		}
 		if (Input.GetKeyDown (KeyCode.D)) {
 			ScrollRight ();
-		}
+		}*/
 	}
 
 
