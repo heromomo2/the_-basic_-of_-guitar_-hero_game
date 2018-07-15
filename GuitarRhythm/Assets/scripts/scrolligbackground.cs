@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class scrolligbackground : MonoBehaviour {
 
-	private GameObject[] backgroundkids;
-	private Transform [] layers;
-
-	private int Index;
+	private Transform cameraTranform;
+	public Renderer  m_Renderer;
+	public float loopspotstart;
+	public float loopspotend;
 	public float speed;
 
 	void Start () {
-		layers = new Transform[transform.childCount];
+		cameraTranform = Camera.main.transform;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Index = 0;
+		
 		moveobject ();
 	}
 	void moveobject(){
-		layers [Index].Translate((Vector3.right * speed) * Time.deltaTime);
+		this.gameObject.transform.Translate((Vector3.right * speed) * Time.deltaTime);
+		loop ();
 	}
+	void loop(){
+		if (this.gameObject.transform.position.x > loopspotend) {
 
+			this.gameObject.transform.position = new Vector3(loopspotstart,0.0f,0.0f);
+		}
+	}
 }
