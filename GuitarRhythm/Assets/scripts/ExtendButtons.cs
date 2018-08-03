@@ -15,13 +15,21 @@ public class ExtendButtons: Button {
 	public override void OnSelect(BaseEventData eventData)
 	{
 		base.OnSelect (eventData);
-		OnButtonSelect();
+    		//OnButtonSelect();
+		if( OnButtonSelect != null)
+		{
+			OnButtonSelect ();
+		}
 		
 	}
 	public override void OnDeselect(BaseEventData eventData)
 	{
 		base.OnDeselect (eventData);
-		OnButtonDeSelect();
+		//OnButtonDeSelect();
+		if( OnButtonDeSelect != null)
+		{
+			OnButtonDeSelect();
+		}
 
 	}
 

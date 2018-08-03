@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ButtonArrow : MonoBehaviour {
 
 	private ExtendButtons m_Button;
@@ -10,8 +11,8 @@ public class ButtonArrow : MonoBehaviour {
 	[SerializeField] private GameObject m_Arrow;
 
 	[SerializeField] private Text m_ButtonText;
-	[SerializeField] private List <float> SelectTextRGB  = new List<float>();
-	[SerializeField] private List <float> DeselectTextRGB  = new List<float>();
+	//[SerializeField] private List <float> SelectTextRGB  = new List<float>();
+	//[SerializeField] private List <float> DeselectTextRGB  = new List<float>();
 
 	// Use this for initialization
 
@@ -21,8 +22,8 @@ public class ButtonArrow : MonoBehaviour {
 		m_Button.OnButtonSelect += ShowArrow;
 		m_Button.OnButtonDeSelect += HideArrow;
 
-		m_Button.OnButtonSelect += SelectText;
-		m_Button.OnButtonDeSelect += DeselectText;
+		//m_Button.OnButtonSelect += SelectText;
+		//m_Button.OnButtonDeSelect += DeselectText;
 
 		HideArrow ();
 	}
@@ -33,8 +34,8 @@ public class ButtonArrow : MonoBehaviour {
 			m_Button.OnButtonSelect -= ShowArrow;
 			m_Button.OnButtonDeSelect -= HideArrow;
 
-			m_Button.OnButtonSelect -= SelectText;
-			m_Button.OnButtonDeSelect -= DeselectText;
+			//m_Button.OnButtonSelect -= SelectText;
+			//m_Button.OnButtonDeSelect -= DeselectText;
 		}
 	}
 
@@ -58,7 +59,7 @@ public class ButtonArrow : MonoBehaviour {
 
 	}
 
-	private void SelectText () {
+/*	private void SelectText () {
 
 		if (m_ButtonText != null &  SelectTextRGB != null  &  SelectTextRGB.Count > 3)
 		{
@@ -77,7 +78,7 @@ public class ButtonArrow : MonoBehaviour {
 		}
 
 
-	}
+	}*/
 	
 
 }
