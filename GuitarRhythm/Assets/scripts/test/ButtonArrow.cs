@@ -16,8 +16,8 @@ public class ButtonArrow : MonoBehaviour {
 	[SerializeField] private List <int> DeselectTextRGB  = new List<int>();
 
 	// Use this for initialization
-
-	private void Start()
+	// this a start
+	private void Awake()
 	{
 		m_Button = GetComponent<ExtendButtons> ();
 		m_Button.OnButtonSelect += ShowArrow;
