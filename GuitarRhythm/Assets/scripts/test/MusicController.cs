@@ -7,9 +7,9 @@ public class MusicController : MonoBehaviour {
 	public static MusicController Instance { get; private set;}
 
 	#region Variables
-	public AudioSource A_Source; 
+	public AudioSource m_AudioSource; 
 	[SerializeField] private List <AudioClip> m_AudioClip = new List<AudioClip>(); 
-	public bool IsPlaying;
+	public bool m_IsPlaying;
 	public int m_Index;
 	#endregion
 
@@ -40,15 +40,15 @@ public class MusicController : MonoBehaviour {
 	
 	}
 
-	void PlayAudio(){
-		A_Source.Play();
+	public void PlayAudio(){
+		m_AudioSource.Play();
 	}
 
-	void SwitchAudio(){
-		A_Source.clip =  m_AudioClip[m_Index];
+	public void SwitchAudio(){
+		m_AudioSource.clip =  m_AudioClip[m_Index];
 	}
 
-	void EndAudio(){
-		A_Source.Stop ();
+	public void EndAudio(){
+		m_AudioSource.Stop ();
 	}
 }
