@@ -4,16 +4,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 public class MeunController : MonoBehaviour {
 	
-	#region Variable for Audio
-	private MusicController  m_MusicController;
-	#endregion
+
 	#region  Variable for Canvas
 	[SerializeField] private Canvas m_OptionMeunGeneralCanvas;
 	[SerializeField] private Canvas m_OptionMeunVideoCanvas;
 	[SerializeField] private Canvas m_OptionMeunAudioCanvas;
 	[SerializeField] private Canvas m_MainMeunCanvas;
 	#endregion
-
+	[SerializeField] private MainMeun FirstSelect; 
 	#region Public Funtion 
 	public void OpenPlayMeun()
 	{
@@ -21,7 +19,8 @@ public class MeunController : MonoBehaviour {
 		m_OptionMeunGeneralCanvas.enabled = false;
 		m_OptionMeunVideoCanvas.enabled = false;
 		m_OptionMeunAudioCanvas.enabled = false;
-		m_MusicController.PlayAudio ();
+		FirstSelect.Index = 0;
+		FirstSelect.FirstSelect ();
 
 	}
 
@@ -30,6 +29,8 @@ public class MeunController : MonoBehaviour {
 		m_OptionMeunGeneralCanvas.enabled = true;
 		m_OptionMeunVideoCanvas.enabled = false;
 		m_OptionMeunAudioCanvas.enabled = true;
+		FirstSelect.Index = 1;
+		FirstSelect.FirstSelect ();
 	}
 
 	public void OpenVideoMeun()
@@ -43,7 +44,7 @@ public class MeunController : MonoBehaviour {
 	{
 		Debug.Log ("sceneName to load:" + scenename);
 		SceneManager.LoadScene (scenename);
-		m_MusicController.EndAudio ();
+
 
 	}
 
