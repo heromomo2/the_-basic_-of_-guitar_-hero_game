@@ -72,16 +72,14 @@ public class Timer  {
 
 				} else {
 					m_IsDone = true;
-					//if(
-					
-					//}
+
+					if (m_OnDone != null) {
+						m_OnDone ();
+
+					}
 				}
 			}
 		}
-
-
 	}
-
-	
-#endregion
-	}
+   #endregion
+}
