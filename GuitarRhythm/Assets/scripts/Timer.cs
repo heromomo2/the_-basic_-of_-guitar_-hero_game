@@ -19,6 +19,9 @@ public class Timer  {
 
 	//Properties 
 	public float RemainingTime {get {return m_TotalTime - m_CurrentTime;} }
+	public float CurrentTime {get {return m_CurrentTime; } }
+	public float Ratio {get{return m_CurrentTime / m_TotalTime; } }
+
 	#endregion
 
 	#region Public Methods
@@ -59,21 +62,27 @@ public class Timer  {
 
 	public void Update()
 	{
-		if (m_IsStarted && !m_IsDone) {
-			if (!m_IsPaused) {
-				
-				if (m_CurrentTime < m_TotalTime) {
+		if (m_IsStarted && !m_IsDone) 
+		{
+			if (!m_IsPaused) 
+			{
+				m_CurrentTime += Time.deltaTime;
 
-					m_CurrentTime += Time.deltaTime;
+				if (m_CurrentTime < m_TotalTime) 
+				{
 
-					if (m_OnUpdate != null) {
+					if (m_OnUpdate != null) 
+					{
 						m_OnUpdate ();
 					}
 
-				} else {
+				} 
+				else 
+				{
 					m_IsDone = true;
 
-					if (m_OnDone != null) {
+					if (m_OnDone != null) 
+					{
 						m_OnDone ();
 
 					}
