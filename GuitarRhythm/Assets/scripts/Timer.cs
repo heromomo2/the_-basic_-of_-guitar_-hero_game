@@ -21,6 +21,7 @@ public class Timer  {
 	public float RemainingTime {get {return m_TotalTime - m_CurrentTime;} }
 	public float CurrentTime {get {return m_CurrentTime; } }
 	public float Ratio {get{return m_CurrentTime / m_TotalTime; } }
+	public bool IsDone { get { return m_IsDone; } }
 
 	#endregion
 
