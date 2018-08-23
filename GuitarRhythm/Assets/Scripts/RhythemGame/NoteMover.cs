@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NoteMover: MonoBehaviour {
+	
 	private Vector3 m_StartPosition;
 	private Vector3 m_TargetPosition;
 

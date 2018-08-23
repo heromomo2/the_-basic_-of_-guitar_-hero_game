@@ -22,6 +22,7 @@ public class NoteSpawner : MonoBehaviour {
 		foreach (NoteMover note in m_Notes) 
 		{
 			note.MoveUpdate ();
+
 			if (note.transform.position.y < m_OffScreen.position.y)
 			{
 				m_RemoveList.Add (note);
@@ -43,10 +44,11 @@ public class NoteSpawner : MonoBehaviour {
 		temp.transform.parent = this.transform;
 		temp.transform.localPosition = Vector3.zero;
 
-		NoteMover note = temp.GetComponent<NoteMover> ();
+		NoteMover note = temp.GetComponent<NoteMover>();
 		note.StartPosition = note.transform.position;
 		note.Target = m_Target.position;
 		note.TimeToTarget = timeToTarget;
+
 		m_Notes.Add (note);
 	}
 

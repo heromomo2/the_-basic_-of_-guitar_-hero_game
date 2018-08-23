@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour {
 
 		m_SongTimer.m_OnUpdate += UpdateSong;
 
-		m_TargetDistance = Vector3.Distance (m_Spawners [0].transform.position, m_Target.position);
+		m_TargetDistance = Vector3.Distance (m_Spawners[0].transform.position, m_Target.position);
 	}
 
 	[ContextMenu("Start Song")]
@@ -87,9 +87,11 @@ public class GameController : MonoBehaviour {
 	{
 		for (int i = 0; i < m_Spawners.Count; i++)
 		{
-			if (m_Song.Rows [m_CurrentRow] [i] == '1')
+			if (m_Song.Rows [m_CurrentRow][i] == '1')
 			{
-				m_Spawners [i].SpawnNote (m_TargetDistance * m_TimeStep); //Figure out way to calculate the speed of the note to the  target
+				Debug.Log ("m_Song.Rows [m_CurrentRow][i]"+m_Song.Rows [m_CurrentRow][i]);
+				m_Spawners[i].SpawnNote (m_TargetDistance * m_TimeStep); //Figure out way to calculate the speed of the note to the  target
+
 			}
 
 		}
