@@ -47,6 +47,6 @@ public class Carlo_NoteSpawner : MonoBehaviour
         note.TimeToTarget = timeToTarget;
 
         m_Notes.Add(note);
-		Debug.Log(" SpawnNote is being calling");
+
     }
 }

@@ -14,6 +14,7 @@ public class NoteMover: MonoBehaviour {
 	{
 		set { m_TimeToTarget = value;}
 	}
+
 	public Vector3 StartPosition
 	{
 		set { m_StartPosition = value;}

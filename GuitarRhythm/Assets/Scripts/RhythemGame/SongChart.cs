@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSong", menuName ="RythmGame/Song", order = 1)]
+[CreateAssetMenu(fileName = "NewSong", menuName ="RhythmGame/Song", order = 1)]
 public class SongChart : ScriptableObject {
 
 	[SerializeField] 
@@ -20,6 +20,7 @@ public class SongChart : ScriptableObject {
 	{
 		get {return m_Time;}
 	}
+
 	[ContextMenu ("Reverse Rows")]
 	private void Reverse()
 	{
