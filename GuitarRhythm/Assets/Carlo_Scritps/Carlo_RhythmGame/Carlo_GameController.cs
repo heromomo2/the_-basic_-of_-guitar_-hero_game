@@ -8,14 +8,14 @@ public class Carlo_GameController : MonoBehaviour {
     private string m_FilePath;
 
     [SerializeField]
-    private List<NoteSpawner> m_Spawners;
+	private List<Carlo_NoteSpawner> m_Spawners = new List<Carlo_NoteSpawner>();
 
     [SerializeField]
     private Transform m_Target;
     private float m_TargetDistance;
 
     private SongChart m_Song;
-    private Timer m_SongTimer;
+    private Carlo_Timer m_SongTimer;
     private float m_TimeStep = 0;
     private int m_CurrentRow = 0;
 
@@ -43,7 +43,7 @@ public class Carlo_GameController : MonoBehaviour {
             return;
         }
 
-        m_SongTimer = new Timer(m_Song.Time);
+		m_SongTimer = new Carlo_Timer(m_Song.Time);
         m_TimeStep = m_Song.Time / m_Song.Rows.Count;
         m_CurrentRow = 0;
 
@@ -67,7 +67,7 @@ public class Carlo_GameController : MonoBehaviour {
             }
         }
 
-        foreach(NoteSpawner spawner in m_Spawners)
+        foreach(Carlo_NoteSpawner spawner in m_Spawners)
         {
             spawner.UpdateNoteSpawner();
         }
