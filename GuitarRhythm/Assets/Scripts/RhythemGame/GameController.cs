@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour {
 			m_SongTimer.Update ();
 			UpdateSong ();
 		}
-		
 	}
 
 	private void Initialize ()
@@ -50,9 +49,9 @@ public class GameController : MonoBehaviour {
 		m_TimeStep = m_Song.Time / m_Song.Rows.Count;
 		m_CurrentRow = 0;
 
-		//m_SongTimer.m_OnUpdate += UpdateSong;
-
 		m_TargetDistance = Vector3.Distance (m_Spawners[0].transform.position, m_Target.position);
+
+		SetUpKeys ();
 	}
 
 	[ContextMenu("Start Song")]
@@ -65,12 +64,10 @@ public class GameController : MonoBehaviour {
 	{
 		if (!m_SongTimer.IsDone) 
 		{	
-			
 			if (m_CurrentRow < m_Song.Rows.Count && m_SongTimer.CurrentTime > m_TimeStep * m_CurrentRow) 
 		    {
 				SpawnNotes ();
 				m_CurrentRow++;
-		
 			}
 		}
 
@@ -78,9 +75,6 @@ public class GameController : MonoBehaviour {
 		{
 			spawner.UpdateNoteSpawner ();
 		}
-
-
-
 	}
 
 	private void SpawnNotes()
@@ -91,11 +85,39 @@ public class GameController : MonoBehaviour {
 			{
 				Debug.Log ("m_Song.Rows [m_CurrentRow][i]"+m_Song.Rows [m_CurrentRow][i]);
 				m_Spawners[i].SpawnNote (m_TargetDistance * m_TimeStep); //Figure out way to calculate the speed of the note to the  target
-
 			}
-
 		}
+	}
 
+	private void SetUpKeys()
+	{
+	 	InputController.Instance.OnPressCenterString += HitCenterKey;
+	 	InputController.Instance.OnPressRightString += HitRightKey;
+	 	InputController.Instance.OnPressLeftString += HitLeftKey;
+	}
 
+	private void OnDestroy()
+	{
+		if (!InputController.IsInstanceNull) 
+		{
+			InputController.Instance.OnPressCenterString -= HitCenterKey;
+			InputController.Instance.OnPressRightString -= HitRightKey;
+			InputController.Instance.OnPressLeftString -= HitLeftKey;
+		}
+	}
+
+	private void HitCenterKey () 
+	{
+		Debug.Log ("Centerkey was pressed");
+	}
+
+	private void HitRightKey () 
+	{
+		Debug.Log ("RightKey was pressed");
+	}
+
+	private void HitLeftKey () 
+	{
+		Debug.Log ("LeftKey was pressed");
 	}
 }
