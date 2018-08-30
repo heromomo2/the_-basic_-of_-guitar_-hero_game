@@ -11,17 +11,19 @@ public class MainMeun : MonoBehaviour {
 
 	//Use this for initialization
 	//public BaseEventData eventData
-	private void Start () {
-		if (m_StartUIElements != null) {
+	private void Start () 
+	{
+		if (m_StartUIElements != null) 
+		{
 			m_StartUIElements[Index].Select ();
 		}
 	}
 
-	public void FirstSelect () {
-		if (m_StartUIElements != null) {
+	public void FirstSelect ()
+	{
+		if (m_StartUIElements != null) 
+		{
 			m_StartUIElements[Index].Select();
-
-
 		}
 	}
 	

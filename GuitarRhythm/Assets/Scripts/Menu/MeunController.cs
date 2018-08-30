@@ -21,11 +21,11 @@ public class MeunController : MonoBehaviour {
 		m_OptionMeunAudioCanvas.enabled = false;
 		FirstSelect.Index = 0;
 		FirstSelect.FirstSelect ();
-
 	}
 
 	public void OpenOptionMeun()
-	{  m_MainMeunCanvas.enabled = false ; 
+	{
+		m_MainMeunCanvas.enabled = false ; 
 		m_OptionMeunGeneralCanvas.enabled = true;
 		m_OptionMeunVideoCanvas.enabled = false;
 		m_OptionMeunAudioCanvas.enabled = true;
@@ -34,7 +34,7 @@ public class MeunController : MonoBehaviour {
 	}
 
 	public void OpenVideoMeun()
-	{  m_MainMeunCanvas.enabled = false ; 
+	{   m_MainMeunCanvas.enabled = false ; 
 		m_OptionMeunGeneralCanvas.enabled = true;
 		m_OptionMeunVideoCanvas.enabled = true;
 		m_OptionMeunAudioCanvas.enabled = false;
@@ -44,15 +44,11 @@ public class MeunController : MonoBehaviour {
 	{
 		Debug.Log ("sceneName to load:" + scenename);
 		SceneManager.LoadScene (scenename);
-
-
 	}
 
 	public void Quit()
 	{
-		
-			Application.Quit ();
-
+	 	Application.Quit ();
 	}
 	#endregion
 

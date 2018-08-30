@@ -54,8 +54,8 @@ public class GameController : MonoBehaviour {
 		SetUpKeys ();
 	}
 
-	[ContextMenu("Start Song")]
-	private void StartSong()
+	//[ContextMenu("Start Song")]
+	public void StartSong()
 	{
 		m_SongTimer.Start ();
 	}
