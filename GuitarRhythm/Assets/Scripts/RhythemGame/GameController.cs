@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour {
 	private List<NoteSpawner> m_Spawners;
 
 	[SerializeField]
+	private MeunController m_MeunController;
+	[SerializeField]
 	private Transform m_Target;
 	private float m_TargetDistance;
 
@@ -18,6 +20,7 @@ public class GameController : MonoBehaviour {
 	private Timer m_SongTimer;
 	private float m_TimeStep = 0;
 	private int m_CurrentRow = 0;
+
 
 	// Use this for initialization
 	void Start () 
@@ -94,6 +97,7 @@ public class GameController : MonoBehaviour {
 	 	InputController.Instance.OnPressCenterString += HitCenterKey;
 	 	InputController.Instance.OnPressRightString += HitRightKey;
 	 	InputController.Instance.OnPressLeftString += HitLeftKey;
+		InputController.Instance.OnPressGameMenu += HitGameMenuKey;
 	}
 
 	private void OnDestroy()
@@ -105,7 +109,11 @@ public class GameController : MonoBehaviour {
 			InputController.Instance.OnPressLeftString -= HitLeftKey;
 		}
 	}
-
+	private void HitGameMenuKey () 
+	{
+		Debug.Log ("GameMenuKey was pressed");
+		m_MeunController.OpenGameMenu ();
+	}
 	private void HitCenterKey () 
 	{
 		Debug.Log ("Centerkey was pressed");

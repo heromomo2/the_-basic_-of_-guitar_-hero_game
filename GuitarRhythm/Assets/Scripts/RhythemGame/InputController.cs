@@ -9,6 +9,7 @@ public class InputController : Singleton<InputController>  {
 	public event OnInputFire OnPressCenterString;
 	public event OnInputFire OnPressLeftString;
 	public event OnInputFire OnPressRightString;
+	public event OnInputFire OnPressGameMenu;
 	#endregion
 
 	private void Update()
@@ -41,6 +42,14 @@ public class InputController : Singleton<InputController>  {
 			if (OnPressRightString != null)
 			{
 				OnPressRightString ();
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			if (OnPressRightString != null)
+			{
+				OnPressGameMenu();
 			}
 		}
 	}

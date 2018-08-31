@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 public class MeunController : MonoBehaviour {
 	
-
+	[SerializeField] private  GameController  GameController;
+	[SerializeField] private List<Button>ButtonList = new List<Button>();
+	[SerializeField] private  bool m_IsStartSong = false;
 	#region  Variable for Canvas
 	[SerializeField] private Canvas m_OptionMeunGeneralCanvas;
 	[SerializeField] private Canvas m_OptionMeunVideoCanvas;
 	[SerializeField] private Canvas m_OptionMeunAudioCanvas;
 	[SerializeField] private Canvas m_MainMeunCanvas;
+	[SerializeField] private Canvas m_GameMenu;
 	#endregion
 	[SerializeField] private MainMeun FirstSelect; 
 	#region Public Funtion 
@@ -50,6 +54,27 @@ public class MeunController : MonoBehaviour {
 	{
 	 	Application.Quit ();
 	}
+
+	public void StartGame()
+	{
+		if (m_IsStartSong) 
+		{
+			ButtonList [0].interactable = false;
+			ButtonList [1].interactable = true;
+		}
+		else 
+		{
+			ButtonList [1].interactable = true;;
+			ButtonList [0].interactable= false;
+		}
+		m_GameMenu.enabled = false;
+		GameController.StartSong ();
+	}
+	public void OpenGameMenu()
+	{
+		m_GameMenu.enabled = true;
+	}
+
 	#endregion
 
 
