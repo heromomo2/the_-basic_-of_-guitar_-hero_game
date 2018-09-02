@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
 	private Timer m_SongTimer;
 	private float m_TimeStep = 0;
 	private int m_CurrentRow = 0;
+	private SongData m_SeletedSond;
 
 
 	// Use this for initialization
@@ -40,8 +41,8 @@ public class GameController : MonoBehaviour {
 
 	private void Initialize ()
 	{
-		m_Song = Resources.Load<SongChart> (m_FilePath);
-
+		//m_Song = Resources.Load<SongChart> (m_FilePath);
+		m_Song = m_SeletedSond.SelectSong;
 		if (m_Song == null)
 		{
 			Debug.LogError ("NO SONG FOUNG DUMMY! ");
