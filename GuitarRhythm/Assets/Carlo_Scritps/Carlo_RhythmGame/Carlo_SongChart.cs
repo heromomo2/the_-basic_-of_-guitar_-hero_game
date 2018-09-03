@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSong", menuName = "RhythmGame/Song", order = 1)]
+[CreateAssetMenu(fileName = "Carlo_NewSong", menuName = "Carlo_RhythmGame/Song", order = 1)]
 public class Carlo_SongChart : ScriptableObject {
 
     [SerializeField]

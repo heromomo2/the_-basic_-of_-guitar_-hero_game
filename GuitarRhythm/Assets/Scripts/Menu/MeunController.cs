@@ -19,29 +19,42 @@ public class MeunController : MonoBehaviour {
 	#region Public Funtion 
 	public void OpenPlayMeun()
 	{
+		if(!m_MainMeunCanvas.enabled == null && !m_OptionMeunGeneralCanvas == null && !m_OptionMeunVideoCanvas == null 
+			&& !m_OptionMeunAudioCanvas == null)
+		{
 		m_MainMeunCanvas.enabled = true ; 
 		m_OptionMeunGeneralCanvas.enabled = false;
 		m_OptionMeunVideoCanvas.enabled = false;
 		m_OptionMeunAudioCanvas.enabled = false;
 		FirstSelect.Index = 0;
 		FirstSelect.FirstSelect ();
+		}
 	}
 
 	public void OpenOptionMeun()
 	{
-		m_MainMeunCanvas.enabled = false ; 
-		m_OptionMeunGeneralCanvas.enabled = true;
-		m_OptionMeunVideoCanvas.enabled = false;
-		m_OptionMeunAudioCanvas.enabled = true;
-		FirstSelect.Index = 1;
-		FirstSelect.FirstSelect ();
+		if(!m_MainMeunCanvas.enabled == null && !m_OptionMeunGeneralCanvas == null && !m_OptionMeunVideoCanvas == null 
+			&& !m_OptionMeunAudioCanvas == null)
+		{
+			m_MainMeunCanvas.enabled = false; 
+			m_OptionMeunGeneralCanvas.enabled = true;
+			m_OptionMeunVideoCanvas.enabled = false;
+			m_OptionMeunAudioCanvas.enabled = true;
+			FirstSelect.Index = 1;
+			FirstSelect.FirstSelect ();
+		}
 	}
 
 	public void OpenVideoMeun()
-	{   m_MainMeunCanvas.enabled = false ; 
-		m_OptionMeunGeneralCanvas.enabled = true;
-		m_OptionMeunVideoCanvas.enabled = true;
-		m_OptionMeunAudioCanvas.enabled = false;
+	{  
+		if(!m_MainMeunCanvas.enabled == null && !m_OptionMeunGeneralCanvas == null && !m_OptionMeunVideoCanvas == null 
+			&& !m_OptionMeunAudioCanvas == null)
+		{
+			m_MainMeunCanvas.enabled = false; 
+			m_OptionMeunGeneralCanvas.enabled = true;
+			m_OptionMeunVideoCanvas.enabled = true;
+			m_OptionMeunAudioCanvas.enabled = false;
+		}
 	}
 
 	public void LoadA( string scenename)
