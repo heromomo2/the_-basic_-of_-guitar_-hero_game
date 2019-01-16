@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
 	private string m_FilePath;
 
 	[SerializeField]
-	private List<NoteSpawner> m_Spawners;
+	private List<NoteSpawner> m_Spawners; // list of spawners 
 
 	[SerializeField]
 	private MeunController m_MeunController;
@@ -17,9 +17,9 @@ public class GameController : MonoBehaviour {
 	private float m_TargetDistance;
 
 	private SongChart m_Song;
-	private Timer m_SongTimer;
+	private Timer m_SongTimer; //  Object from the timer class named M_ songTimer. 
 	private float m_TimeStep = 0;
-	private int m_CurrentRow = 0;
+	private int m_CurrentRow = 0; 
 	//private SongData m_SeletedSond;
 
 
@@ -66,29 +66,38 @@ public class GameController : MonoBehaviour {
 
 	private void UpdateSong()
 	{
-		if (!m_SongTimer.IsDone) 
+		// If the timer isn't done then continue with what's happening in the curly brackets.
+		if (!m_SongTimer.IsDone)  
 		{	
+			// Ask carlo to exaplain this to you.
 			if (m_CurrentRow < m_Song.Rows.Count && m_SongTimer.CurrentTime > m_TimeStep * m_CurrentRow) 
 		    {
-				SpawnNotes ();
+				// Where you calling spawnNotes fuction beinng called.
+				SpawnNotes (); 
+				// increment the int m_CurrentRow.
 				m_CurrentRow++;
 			}
 		}
 
+		// loop through the list of Spawners depending on amount of spawners in the list.
 		foreach (NoteSpawner spawner in m_Spawners) 
 		{
 			spawner.UpdateNoteSpawner ();
 		}
 	}
 
+	// This is fuction  deal with  spawning notes. 
 	private void SpawnNotes()
 	{
-		for (int i = 0; i < m_Spawners.Count; i++)
+		// loop around the same amount of times as there is spawners.
+		for (int i = 0; i < m_Spawners.Count; i++) 
 		{
-			if (m_Song.Rows [m_CurrentRow][i] == '1')
+			if (m_Song.Rows [m_CurrentRow][i] == '1') // 
 			{
+				// Display this "m_Song.Rows [m_CurrentRow][i]" in cosole.
 				Debug.Log ("m_Song.Rows [m_CurrentRow][i]"+m_Song.Rows [m_CurrentRow][i]);
-				m_Spawners[i].SpawnNote (m_TargetDistance * m_TimeStep); //Figure out way to calculate the speed of the note to the  target
+				//Figure out way to calculate the speed of the note to the target.
+				m_Spawners[i].SpawnNote (m_TargetDistance * m_TimeStep); 
 			}
 		}
 	}

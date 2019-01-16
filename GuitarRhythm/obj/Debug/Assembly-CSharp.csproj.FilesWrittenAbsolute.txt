@@ -44,3 +44,5 @@
 /Users/owner/Desktop/github/the_-basic_-of_-guitar_-hero_game/GuitarRhythm/Temp/bin/Debug/Unity.Cecil.Mdb.dll
 /Users/owner/Desktop/github/the_-basic_-of_-guitar_-hero_game/GuitarRhythm/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
 /Users/owner/Desktop/github/the_-basic_-of_-guitar_-hero_game/GuitarRhythm/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
+/Users/owner/Desktop/github/the_-basic_-of_-guitar_-hero_game/GuitarRhythm/Temp/bin/Debug/UnityEditor.WebGL.Extensions.dll
+/Users/owner/Desktop/github/the_-basic_-of_-guitar_-hero_game/GuitarRhythm/Temp/bin/Debug/UnityEditor.WindowsStandalone.Extensions.dll
