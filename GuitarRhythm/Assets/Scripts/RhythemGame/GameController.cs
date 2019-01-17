@@ -104,6 +104,9 @@ public class GameController : MonoBehaviour {
 
 	private void SetUpKeys()
 	{
+		/*  Connectioning to Fuctions in this class to the delegate event in InputController class.
+		 *  When the delegate event is being call the fuctions connnected to will also being call.
+		*/
 	 	InputController.Instance.OnPressCenterString += HitCenterKey;
 	 	InputController.Instance.OnPressRightString += HitRightKey;
 	 	InputController.Instance.OnPressLeftString += HitLeftKey;
@@ -112,18 +115,28 @@ public class GameController : MonoBehaviour {
 
 	private void OnDestroy()
 	{
+		// if InputController class is an Instance and not null then continue with code in curly brackets.
 		if (!InputController.IsInstanceNull) 
 		{
+			/*Makes sure to break the connection between delegates events and then functions subscribe to the delegates 
+			 * if the class is destroyed.
+			*/
 			InputController.Instance.OnPressCenterString -= HitCenterKey;
 			InputController.Instance.OnPressRightString -= HitRightKey;
 			InputController.Instance.OnPressLeftString -= HitLeftKey;
+			InputController.Instance.OnPressGameMenu -= HitGameMenuKey;
 		}
 	}
+	/// <summary>
+	/// Hits the key.
+	/// print to the cosole.
+	/// </summary>
 	private void HitGameMenuKey () 
 	{
 		Debug.Log ("GameMenuKey was pressed");
 		m_MeunController.OpenGameMenu ();
 	}
+
 	private void HitCenterKey () 
 	{
 		Debug.Log ("Centerkey was pressed");
