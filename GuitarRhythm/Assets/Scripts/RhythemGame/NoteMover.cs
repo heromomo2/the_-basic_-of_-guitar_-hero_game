@@ -35,6 +35,7 @@ public class NoteMover: MonoBehaviour {
 
 		m_Time += Time.deltaTime;
 		transform.position = Vector3.Lerp (m_StartPosition, m_TargetPosition, m_Time / m_TimeToTarget);
+
 	}
 
 	public void ClaimNote ()

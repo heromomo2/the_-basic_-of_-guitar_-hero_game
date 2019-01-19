@@ -5,30 +5,31 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour {
 
 	[SerializeField]
-	private GameObject m_NotePrefab = null;
+	private GameObject m_NotePrefab = null; // object template of note
 	[SerializeField]
-	private Transform m_Target = null;
+	private Transform m_Target = null; 
 	[SerializeField]
 	private Transform m_OffScreen = null;
 
-	private List<NoteMover> m_Notes = new List<NoteMover>();
-	private List<NoteMover> m_RemoveList = new List<NoteMover>();
+	private List<NoteMover> m_Notes = new List<NoteMover>(); // a list of notes spawned
+	private List<NoteMover> m_RemoveList = new List<NoteMover>();  // a list of notes despawned
 
 
 
 
 	public void UpdateNoteSpawner()
 	{
+		//  loop through list of list of notes spawn.
 		foreach (NoteMover note in m_Notes) 
 		{
 			note.MoveUpdate ();
 
-			if (note.transform.position.y < m_OffScreen.position.y)
+			if (note.transform.position.y < m_OffScreen.position.y) // note 
 			{
-				m_RemoveList.Add (note);
+				m_RemoveList.Add (note); // add notes to despawn list
 			}
 		}
-
+		//  loop through list of list of notes despawn.
 		foreach (NoteMover note in m_RemoveList)
 		{
 			m_Notes.Remove (note);
