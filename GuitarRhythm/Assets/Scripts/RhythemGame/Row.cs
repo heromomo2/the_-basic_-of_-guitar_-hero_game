@@ -4,13 +4,19 @@ using UnityEngine;
 
 [System.Serializable]
 
-public class Rows : MonoBehaviour {
+public class Row : MonoBehaviour {
 
 	[SerializeField]
-	private List<bool> m_RowOfNote;
+	private List<bool> m_RowOfNote = new List<bool>;
+
+
 	[SerializeField]
 	private float m_TimeSignature; 
 
 
+	public List<bool>RowOfNote
+	{
+		get {return m_RowOfNote; }
+	}
 
 }
