@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Carlo_GameController : MonoBehaviour {
 
-    [SerializeField]
+ /*   [SerializeField]
     private string m_FilePath;
 
     [SerializeField]
@@ -44,7 +44,7 @@ public class Carlo_GameController : MonoBehaviour {
         }
 
 		m_SongTimer = new Carlo_Timer(m_Song.Time);
-        m_TimeStep = m_Song.Time / m_Song.Rows.Count;
+        m_TimeStep = m_Song.Time / m_Song.Row.Count;
         m_CurrentRow = 0;
 
         m_TargetDistance = Vector3.Distance(m_Spawners[0].transform.position, m_Target.position);
@@ -82,5 +82,5 @@ public class Carlo_GameController : MonoBehaviour {
                 m_Spawners[i].SpawnNote(m_TargetDistance * m_TimeStep);    // Figure out a proper way to calculate the speed of the note to the target
             }
         }
-    }
+    }*/
 }

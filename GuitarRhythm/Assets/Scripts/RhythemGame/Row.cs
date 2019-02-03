@@ -4,10 +4,10 @@ using UnityEngine;
 
 [System.Serializable]
 
-public class Row : MonoBehaviour {
+public class Row {
 
 	[SerializeField]
-	private List<bool> m_RowOfNote = new List<bool>;
+	private List<bool> m_RowOfNote = new List<bool>();
 
 
 	[SerializeField]
