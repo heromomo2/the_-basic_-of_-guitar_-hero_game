@@ -23,6 +23,13 @@ public class SongChart : ScriptableObject {
 	{
 		get {return m_NumOfCol;}
 	}
+		
+
+	public List<Row > GetRows
+	{
+		get { return m_Rows; }
+	}
+
 
    [ContextMenu ("Reverse Rows")]
 	private void Reverse()

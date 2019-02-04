@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		m_SongTimer = new Timer (m_Song.Time);
-		///m_TimeStep = m_Song.Time / m_Song.Rows.Count;
+		m_TimeStep = m_Song.Time / m_Song.GetRows.Count;
 		m_CurrentRow = 0;
 
 		m_TargetDistance = Vector3.Distance (m_Spawners[0].transform.position, m_Target.position);
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour {
 		if (!m_SongTimer.IsDone)  
 		{	
 			// Ask carlo to exaplain this to you.
-		//	if (m_CurrentRow < m_Song.Rows.Count && m_SongTimer.CurrentTime > m_TimeStep * m_CurrentRow) 
+		if (m_CurrentRow < m_Song.GetRows.Count && m_SongTimer.CurrentTime > m_TimeStep * m_CurrentRow) 
 		    {
 				// Where you calling spawnNotes fuction beinng called.
 				SpawnNotes (); 
@@ -92,10 +92,10 @@ public class GameController : MonoBehaviour {
 		// loop around the same amount of times as there is spawners.
 		for (int i = 0; i < m_Spawners.Count; i++) 
 		{
-		//	if (m_Song.Rows [m_CurrentRow][i] == '1') // 
+			if (m_Song.GetRows [m_CurrentRow].RowOfNote[i] == true) // 
 			{
-				// Display this "m_Song.Rows [m_CurrentRow][i]" in cosole.
-//				Debug.Log ("m_Song.Rows [m_CurrentRow][i]"+m_Song.Rows [m_CurrentRow][i]);
+				//Display this "m_Song.Rows [m_CurrentRow][i]" in cosole.
+				//Debug.Log ("m_Song.Rows [m_CurrentRow][i]"+m_Song.Rows [m_CurrentRow][i]);
 				//Figure out way to calculate the speed of the note to the target.
 				m_Spawners[i].SpawnNote (m_TargetDistance * m_TimeStep); 
 			}
