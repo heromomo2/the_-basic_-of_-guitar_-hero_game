@@ -19,4 +19,13 @@ public class Row {
 		get {return m_RowOfNote; }
 	}
 
+	public void AddToRows(int NumOfCol)
+	{
+		m_RowOfNote.Clear();
+
+		for(int i = 0; i < NumOfCol ; i++)
+		{
+			m_RowOfNote.Add (false);
+		}
+	}
 }

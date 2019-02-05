@@ -14,9 +14,18 @@ public class SongChart : ScriptableObject {
 	[SerializeField]
 	private int m_NumOfCol = 3;
 
+	private int m_RowsPerMinute = 0;
+
 	public float Time
 	{
 		get {return m_Time;}
+		set {m_Time = value;}
+	}
+
+	public int RowsPerMinute
+	{
+		get {return m_RowsPerMinute;}
+		set {m_RowsPerMinute = value;}
 	}
 
 	public int NumOfCol
@@ -24,13 +33,11 @@ public class SongChart : ScriptableObject {
 		get {return m_NumOfCol;}
 	}
 		
-
 	public List<Row > GetRows
 	{
 		get { return m_Rows; }
 	}
-
-
+		
    [ContextMenu ("Reverse Rows")]
 	private void Reverse()
 	{
