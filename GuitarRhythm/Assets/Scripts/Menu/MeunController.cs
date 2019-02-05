@@ -8,6 +8,8 @@ public class MeunController : MonoBehaviour {
 	[SerializeField] private  GameController  GameController;
 	[SerializeField] private List<Button>ButtonList = new List<Button>();
 	[SerializeField] private  bool m_IsStartSong = false;
+
+
 	#region  Variable for Canvas
 	[SerializeField] private Canvas m_OptionMeunGeneralCanvas;
 	[SerializeField] private Canvas m_OptionMeunVideoCanvas;
@@ -15,7 +17,9 @@ public class MeunController : MonoBehaviour {
 	[SerializeField] private Canvas m_MainMeunCanvas;
 	[SerializeField] private Canvas m_GameMenu;
 	#endregion
+
 	[SerializeField] private MainMeun FirstSelect; 
+
 	#region Public Funtion 
 	public void OpenPlayMeun()
 	{
@@ -57,10 +61,17 @@ public class MeunController : MonoBehaviour {
 		}
 	}
 
-	public void LoadA( string scenename)
+	public void LoadA( string scenename )
 	{
-		Debug.Log ("sceneName to load:" + scenename);
-		SceneManager.LoadScene (scenename);
+		if ( SongData.Instance.SelectSong != null) 
+		{
+			Debug.Log ("sceneName to load:" + scenename);
+			SceneManager.LoadScene (scenename);
+		} 
+		else 
+		{
+			Debug.Log ("NO Song was seleted");
+		}
 	}
 
 	public void Quit()
