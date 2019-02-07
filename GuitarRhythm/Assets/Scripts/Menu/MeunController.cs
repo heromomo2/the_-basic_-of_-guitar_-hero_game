@@ -16,6 +16,7 @@ public class MeunController : MonoBehaviour {
 	[SerializeField] private Canvas m_OptionMeunAudioCanvas;
 	[SerializeField] private Canvas m_MainMeunCanvas;
 	[SerializeField] private Canvas m_GameMenu;
+	[SerializeField] private Canvas m_PlayMenuCanvas;
 	#endregion
 
 	[SerializeField] private MainMeun FirstSelect; 
@@ -23,15 +24,33 @@ public class MeunController : MonoBehaviour {
 	#region Public Funtion 
 	public void OpenPlayMeun()
 	{
-		if(!m_MainMeunCanvas.enabled == null && !m_OptionMeunGeneralCanvas == null && !m_OptionMeunVideoCanvas == null 
-			&& !m_OptionMeunAudioCanvas == null)
+		Debug.Log("OpenPlayMeun is being call 1");
+		if(m_MainMeunCanvas != null && m_OptionMeunGeneralCanvas != null && m_OptionMeunVideoCanvas != null 
+			&& m_OptionMeunAudioCanvas != null && m_PlayMenuCanvas != null )
 		{
-		m_MainMeunCanvas.enabled = true ; 
+		m_PlayMenuCanvas.enabled = true; 	
+		m_MainMeunCanvas.enabled = false; 
 		m_OptionMeunGeneralCanvas.enabled = false;
 		m_OptionMeunVideoCanvas.enabled = false;
 		m_OptionMeunAudioCanvas.enabled = false;
-		FirstSelect.Index = 0;
-		FirstSelect.FirstSelect ();
+		Debug.Log("OpenPlayMeun is being call 2");
+		//FirstSelect.Index = 0;
+		//FirstSelect.FirstSelect ();
+		}
+	}
+
+	public void OpenMainMeun()
+	{
+		if(m_MainMeunCanvas != null && m_OptionMeunGeneralCanvas != null && m_OptionMeunVideoCanvas != null 
+			&& m_OptionMeunAudioCanvas != null && m_PlayMenuCanvas  != null)
+		{
+			m_PlayMenuCanvas.enabled = false; 	
+			m_MainMeunCanvas.enabled = true; 
+			m_OptionMeunGeneralCanvas.enabled = false;
+			m_OptionMeunVideoCanvas.enabled = false;
+			m_OptionMeunAudioCanvas.enabled = false;
+			FirstSelect.Index = 0;
+			FirstSelect.FirstSelect ();
 		}
 	}
 

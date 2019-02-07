@@ -4,15 +4,21 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSong", menuName ="RhythmGame/Song", order = 1)]
 public class SongChart : ScriptableObject {
-	
+	/// <summary>
+	/// The m rows .
+	/// </summary>
 	[SerializeField] 
 	private List <Row> m_Rows = new List<Row> ();
+	/// <summary>
+	/// The m time.
+	/// </summary>
+	[SerializeField]
+	private float m_Time = 0; /// <summary>
+	/// The m number of col.
+	/// </summary>
 
 	[SerializeField]
-	private float m_Time = 0;
-
-	[SerializeField]
-	private int m_NumOfCol = 3;
+	private int m_NumOfCol = 3;  // m
 
 	private int m_RowsPerMinute = 0;
 

@@ -6,13 +6,13 @@ using UnityEditor;
 [CustomEditor(typeof(SongChart))]
 public class SongChartEditor : Editor {
 
-	private SongChart m_Song = null;
+	private SongChart m_Song = null; // m_song is null and object from the SongChart class 
 
-	private int m_NumOfRow = 0;
+	private int m_NumOfRow = 0;  // number of row and is a an int.
 
 	void OnEnable()
 	{
-		m_Song = (SongChart)target;
+		m_Song = (SongChart)target; // (Explicit casting)casting m_Song
 
 //		for(int i = 0; i < m_Song.ListOfRows.Count; i++)
 //		{
@@ -32,11 +32,11 @@ public class SongChartEditor : Editor {
 		
 	public override void OnInspectorGUI()
 	{
-		m_Song.Time = EditorGUILayout.FloatField ("Song lenth", m_Song.Time);
+		m_Song.Time = EditorGUILayout.FloatField ("Song lenth", m_Song.Time); // you can input value in the inspector.
 
-		m_Song.RowsPerMinute = EditorGUILayout.IntField ("Rows Per Minute", m_Song.RowsPerMinute);
+		m_Song.RowsPerMinute = EditorGUILayout.IntField ("Rows Per Minute", m_Song.RowsPerMinute);  // you can input value in the inspector.
 
-		m_NumOfRow = (int)(m_Song.Time * (float)m_Song.RowsPerMinute) + 10;
+		m_NumOfRow = (int)(m_Song.Time * (float)m_Song.RowsPerMinute) + 10; // ask carlo about this piece of code
 
 //		if(m_NumOfRow < m_Song.ListOfRows.Count)
 //		{
