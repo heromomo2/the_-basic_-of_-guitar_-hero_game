@@ -8,6 +8,7 @@ public class MeunController : MonoBehaviour {
 	[SerializeField] private  GameController  GameController;
 	[SerializeField] private List<Button>ButtonList = new List<Button>();
 	[SerializeField] private  bool m_IsStartSong = false;
+	[SerializeField] private  bool m_IsGameOpened = false;
 
 
 	#region  Variable for Canvas
@@ -17,6 +18,9 @@ public class MeunController : MonoBehaviour {
 	[SerializeField] private Canvas m_MainMeunCanvas;
 	[SerializeField] private Canvas m_GameMenu;
 	[SerializeField] private Canvas m_PlayMenuCanvas;
+	[SerializeField] private Canvas m_StartScreenCanvas;
+	[SerializeField] private Text m_PressAnyText;
+
 	#endregion
 
 	[SerializeField] private MainMeun FirstSelect; 
@@ -42,13 +46,14 @@ public class MeunController : MonoBehaviour {
 	public void OpenMainMeun()
 	{
 		if(m_MainMeunCanvas != null && m_OptionMeunGeneralCanvas != null && m_OptionMeunVideoCanvas != null 
-			&& m_OptionMeunAudioCanvas != null && m_PlayMenuCanvas  != null)
+			&& m_OptionMeunAudioCanvas != null && m_PlayMenuCanvas  != null && m_StartScreenCanvas != null)
 		{
 			m_PlayMenuCanvas.enabled = false; 	
 			m_MainMeunCanvas.enabled = true; 
 			m_OptionMeunGeneralCanvas.enabled = false;
 			m_OptionMeunVideoCanvas.enabled = false;
 			m_OptionMeunAudioCanvas.enabled = false;
+			m_StartScreenCanvas.enabled = false;
 			FirstSelect.Index = 0;
 			FirstSelect.FirstSelect ();
 		}
@@ -118,8 +123,47 @@ public class MeunController : MonoBehaviour {
 		m_GameMenu.enabled = true;
 	}
 
+	private void MoveForStartScreen()
+	{
+		Debug.Log (" press any1");
+		if ( m_StartScreenCanvas != null && m_MainMeunCanvas != null && m_IsGameOpened == false)
+		{
+			
+			Debug.Log (" press any2");
+			if (Input.anyKey) 
+			{
+				Debug.Log (" press any3");
+				m_IsGameOpened = true;
+				OpenMainMeun ();
+			}
+
+		}
+	}
+		
 	#endregion
 
+	void Update()
+	{
+		MoveForStartScreen ();
 
+		if (m_PressAnyText != null)
+		{
+			Color tempcolor = m_PressAnyText.color;
+			float t = Time.time % 1;
+			float answer; 
+			if (t > 0.5f) 
+			{
+				answer = 0;
+			}
+			else 
+			{
+				answer = 1;
 
+			}
+			//tempcolor.a = Mathf.Lerp(0,1, t > 0.5f ? 0:1);
+			tempcolor.a = Mathf.Lerp(0,1,answer);
+			//tempcolor = Color.Lerp(Color.blue,Color.red , t > 0.5f ? 0:1);
+			m_PressAnyText.color = tempcolor;
+		}
+	}
 }
