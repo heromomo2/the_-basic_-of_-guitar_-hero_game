@@ -27,7 +27,10 @@ public class SongChartEditor : Editor {
 	[ContextMenu ("Reset")]
 	private void Reset()
 	{
-		m_Song.ListOfRows.Clear ();
+		if ( m_Song != null)
+		{
+			m_Song.ListOfRows.Clear ();
+		}
 	}
 		
 	public override void OnInspectorGUI()

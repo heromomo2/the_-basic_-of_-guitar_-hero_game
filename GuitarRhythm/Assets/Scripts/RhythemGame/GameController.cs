@@ -49,8 +49,8 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-		m_SongTimer = new Timer (m_Song.Time);
-		m_TimeStep = m_Song.Time / m_Song.GetRows.Count;
+		m_SongTimer = new Timer (m_Song.Time * 60.0f);
+		m_TimeStep = (m_Song.Time * 60.0f) / m_Song.GetRows.Count;
 		m_CurrentRow = 0;
 
 		m_TargetDistance = Vector3.Distance (m_Spawners[0].transform.position, m_Target.position);

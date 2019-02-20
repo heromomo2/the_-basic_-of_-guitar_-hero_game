@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SongController : MonoBehaviour {
 
+	float m_time;
+
 	// Use this for initialization
 	void Start () {
 		
