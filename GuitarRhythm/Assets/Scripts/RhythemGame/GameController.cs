@@ -140,6 +140,8 @@ public class GameController : MonoBehaviour {
 	private void HitCenterKey () 
 	{
 		Debug.Log ("Centerkey was pressed");
+
+		RowCheck  (m_SongTimer);
 	}
 
 	private void HitRightKey () 
@@ -151,4 +153,22 @@ public class GameController : MonoBehaviour {
 	{
 		Debug.Log ("LeftKey was pressed");
 	}
+
+	/// <summary>
+	/// Rs the row check.
+	/// when in the song this is being press
+	/// that alls
+	/// </summary>
+	/// <param name="KeyTime">Key time.</param>
+	private void RowCheck  (Timer KeyTime) 
+	{
+		Debug.LogWarning ("keytime"+ KeyTime.CurrentTime);
+
+		Debug.LogWarning ("m_Song.GetRows"+m_Song.GetRows);
+
+	}
+
+
+
+
 }

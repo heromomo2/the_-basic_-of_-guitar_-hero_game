@@ -11,7 +11,7 @@ public class Row {
 
 
 	[SerializeField]
-	private float m_TimeSignature; 
+	private List<float> m_TimeSignature; 
 
 
 	public List<bool>RowOfNote
@@ -19,6 +19,11 @@ public class Row {
 		get {return m_RowOfNote; }
 	}
 
+	public List<float> TimeSignature
+	{
+		get {return m_TimeSignature; }
+	}
+		
 	public void AddToRows(int NumOfCol)
 	{
 		m_RowOfNote.Clear();

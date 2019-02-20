@@ -10,7 +10,7 @@ public class SongChart : ScriptableObject {
 	[SerializeField] 
 	private List <Row> m_Rows = new List<Row> ();
 	/// <summary>
-	/// The m time.
+	/// The m time is the length of the song.
 	/// </summary>
 	[SerializeField]
 	private float m_Time = 0; /// <summary>
@@ -21,6 +21,16 @@ public class SongChart : ScriptableObject {
 	private int m_NumOfCol = 3;  // m
 
 	private int m_RowsPerMinute = 0;
+
+//	[SerializeField]
+//	private List <float> m_SongChartTimeSignature; 
+//
+//
+//	public List <float> SongChartTimeSignature
+//	{
+//		get {return m_SongChartTimeSignature;}
+//		set {m_SongChartTimeSignature = value;}
+//	}
 
 	public float Time
 	{
@@ -39,7 +49,7 @@ public class SongChart : ScriptableObject {
 		get {return m_NumOfCol;}
 	}
 		
-	public List<Row > GetRows
+	public List<Row> GetRows
 	{
 		get { return m_Rows; }
 	}
@@ -49,7 +59,10 @@ public class SongChart : ScriptableObject {
 	{
 		m_Rows.Reverse ();
 	}
-
+	/*
+	 * Code for the SongChartEditor.
+	 * don't touch it.
+	*/
 	#if UNITY_EDITOR
 
 	public List<Row> ListOfRows 
